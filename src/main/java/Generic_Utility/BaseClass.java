@@ -39,7 +39,8 @@ public class BaseClass {
 		
 		flib = new FileUtility();
 		
-		String BROWSER = flib.getCommonData("browser");       
+//		String BROWSER = flib.getCommonData("browser"); 
+		String BROWSER = System.getProperty("browser");     
         if (BROWSER.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
 		} else if (BROWSER.equalsIgnoreCase("edge")) {
@@ -76,8 +77,11 @@ public class BaseClass {
 		String URL = flib.getCommonData("url");		
 		driver.get(URL);	
 		
-		String USERNAME = flib.getCommonData("username");
-		String PASSWORD = flib.getCommonData("password");
+//		String USERNAME = flib.getCommonData("username");
+//		String PASSWORD = flib.getCommonData("password");
+		
+		String USERNAME = System.getProperty("username");
+		String PASSWORD = System.getProperty("password");
 		
 //	    login	    
 	    LoginPage loginPageObj = new LoginPage(driver);
